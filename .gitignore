@@ -39,3 +39,12 @@ luac.out
 *.x86_64
 *.hex
 
+
+# user define
+.vscode/launch.json
+resources/*
+csv/*
+data/*
+filter/*
+
+!filter/sample.lua
