@@ -31,6 +31,6 @@ Lua 5.4<br><br>
 # 注意点
 出力する csvファイルの文字コードは UTF-8 (BOMなし) です。MS Excel ではそのまま文字化けして読めませんので、UTF-8 (BOMなし) -> UTF-8 (BOM付き) に変換するソフトを適宜使用してください。<br><br>
 
-# LICENCE
+# LICENSE
 [LICENSE](https://github.com/mayaqf/EquipSorter/blob/main/LICENSE)
 
