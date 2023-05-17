@@ -48,3 +48,6 @@ data/*
 filter/*
 
 !filter/sample.lua
+!csv/README.md
+!data/README.md
+!resources/README.md
