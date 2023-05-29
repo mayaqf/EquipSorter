@@ -1,5 +1,5 @@
 # EquipSorter
-GearSwap で Export した Itemリスト.lua ファイルと、Windower のリソースファイルを使用してソートした結果を csvファイルとして出力します。<br><br>
+[GearSwap](https://github.com/Windower/Lua/tree/dev/addons/GearSwap) で Export した Itemリスト.lua ファイルと、Windower のリソースファイルを使用してソートした結果を csvファイルとして出力します。<br><br>
 
 # Lua Version
 Lua 5.4<br><br>
