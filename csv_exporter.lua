@@ -25,6 +25,7 @@ function csv_exporter(integ_equip, filter)
         '被ﾌﾞﾚｽﾀﾞﾒｰｼﾞ[%]',
         'その他'
     }
+    
     local date = os.date("*t")
     local datestr = string.format("%04d%02d%02d_%02d%02d%02d",date.year,date.month,date.day,date.hour,date.min,date.sec)
     for _, f in pairs(filter) do
