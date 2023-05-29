@@ -50,6 +50,7 @@ function init_property_table()
     }
 end
 
+
 function property_tostring(prop, key)
     for k,v in pairs(prop) do
         if type(v) == "table" and v.ja and v.ja == key and type(v.value) == "number" then

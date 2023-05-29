@@ -84,7 +84,6 @@ function read_exported_file(filename)
             end
             local exp = {name="",augments=""}
             if not value:find(name, 1, true) then
-                -- value= legs="ヘルクリアトラウザ",
                 name = value:stripchars([[",]])
                 exp.name = name
                 table.insert(exported[cat], exp)
@@ -202,5 +201,6 @@ integration_augments()
 
 local filter = require "filter.sample"
 
+--[[csvとして出力]]
 csv_exporter(integ_equip, filter)
 

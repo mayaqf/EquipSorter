@@ -92,23 +92,23 @@ function sort(t, filter)
     end
 end
 
-
+--- 単項目の単純比較
 function simple_order(a, b, id)
     return (math.abs(tonumber(a[id].value) or 0)) > (math.abs(tonumber(b[id].value) or 0))
 end
 
-
+--- 係数を掛けた結果の合計で比較
 function sum_order(a, b, id1, id2, frac1, frac2)
     return (math.abs((tonumber(a[id1].value) or 0) * frac1) + math.abs((tonumber(a[id2].value) or 0) * frac2))
     > (math.abs((tonumber(b[id1].value) or 0) * frac1) + math.abs((tonumber(b[id2].value) or 0) * frac2))
 end
 
-
+--- プロパティに指定文字が含まれるか
 function property_order(a, b, prop)
     return (table.concat(a['その他']," ") or ""):contains(prop) and not (table.concat(b['その他']," ") or ""):contains(prop)
 end
 
-
+--- property_table 内の sortkey の index を取得。
 function get_sortkey_index(sortkey)
     local proptbl = init_property_table()
     for i,v in ipairs(proptbl) do

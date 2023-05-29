@@ -9,7 +9,7 @@ return {
     {
         topmost = 5,
         sortkey = "二刀流",
-        property = "二刀流"
+        property = "二刀流", -- "二刀流効果アップ" などの数値じゃないプロパティをフィルタします。
     },
     {
         topmost = 5,
