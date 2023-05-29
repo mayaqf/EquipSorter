@@ -1,3 +1,5 @@
+require 'strings'
+
 function sort(t, filter)
     local list = {}
     local ret = {}
@@ -37,6 +39,10 @@ function sort(t, filter)
         local frac2 = filter.frac2 or 1
         local is_sum = type(filter.is_sum) == "boolean" and filter.is_sum or false
 
+        if filter.property then
+            table.sort(list, function (a, b) return property_order(a, b, filter.property) end)
+        end
+
         if filter.sortkey2 ~= nil then
             if filter.is_sum then
                 if frac1 > frac2 then
@@ -67,7 +73,9 @@ function sort(t, filter)
     local count = 0
     local index = 1
     while true do
-        if list[index][keyindx1].value ~= "" or (keyindx2 and list[index][keyindx2].value ~= "") then
+        if list[index][keyindx1].value ~= "" 
+            or (keyindx2 and list[index][keyindx2].value ~= "")
+            or (filter.property and (table.concat(list[index]['その他'], " ") or ""):contains(filter.property)) then
             table.insert(ret, list[index])
             count = count + 1
         end
@@ -93,6 +101,11 @@ end
 function sum_order(a, b, id1, id2, frac1, frac2)
     return (math.abs((tonumber(a[id1].value) or 0) * frac1) + math.abs((tonumber(a[id2].value) or 0) * frac2))
     > (math.abs((tonumber(b[id1].value) or 0) * frac1) + math.abs((tonumber(b[id2].value) or 0) * frac2))
+end
+
+
+function property_order(a, b, prop)
+    return (table.concat(a['その他']," ") or ""):contains(prop) and not (table.concat(b['その他']," ") or ""):contains(prop)
 end
 
 

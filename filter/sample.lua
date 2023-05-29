@@ -9,10 +9,12 @@ return {
     {
         topmost = 5,
         sortkey = "二刀流",
+        property = "二刀流"
     },
     {
         topmost = 5,
         sortkey = "ストアTP",
+        property = "ストアTP"
     },
     {
         topmost = 5,

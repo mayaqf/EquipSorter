@@ -19,7 +19,7 @@ modification, are permitted provided that the following conditions are met:
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL <your name> BE LIABLE FOR ANY
+DISCLAIMED. IN NO EVENT SHALL Mayaqf BE LIABLE FOR ANY
 DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
@@ -46,7 +46,7 @@ local integ_equip = init_category()
 
 local data_src = {
     --[[ list here "data/GeawSwapExportedItemss.lua" ]]
-    "data/Mayaqf 2023-05-12 20-08-24.lua",
+    "data/Mayaqf 2023-05-27 17-03-41.lua",
 }
 
 
@@ -134,14 +134,15 @@ function parse_property(name)
     for _, s in pairs(props) do
         for k, v in pairs(property) do
             if type(v) == "table" and type(k) == "number" and s:startswith(v.ja) then
-                if s:find("スキル",1,true) then goto others end
                 local sb = s:stripchars(v.ja)
                 if v.suffix then
                     sb = sb:stripchars(v.suffix)
                     property[k].suffix = v.suffix
                 end
-                property[k].value = tonumber(sb, 10) or sb
-                goto continue
+                if tonumber(sb, 10) then
+                    property[k].value = tonumber(sb, 10)
+                    goto continue
+                end
             end
         end
         ::others::
