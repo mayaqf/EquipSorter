@@ -6,7 +6,7 @@ Lua 5.4<br><br>
 
 # 使用方法
 
-1. EquipSorter/resources フォルダに以下の Windower resファイルをコピーする
+1. EquipSorter/resources フォルダに以下の Windower の resファイルをコピーする
     * item_descriptions.lua
     * items.lua
     * jobs.lua
